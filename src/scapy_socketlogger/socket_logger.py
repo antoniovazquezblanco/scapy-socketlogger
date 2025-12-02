@@ -4,7 +4,8 @@
 # SPDX-FileCopyrightText: 2025 Antonio Vázquez Blanco <antoniovazquezblanco@gmail.com>
 #
 
-from scapy.all import SuperSocket, PcapWriter
+from scapy.supersocket import SuperSocket
+from scapy.utils import PcapWriter
 
 
 class SocketLogger:

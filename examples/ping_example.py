@@ -1,25 +1,31 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
+#
+# SPDX-License-Identifier: GPL-3.0-only
+# SPDX-FileCopyrightText: 2025 Antonio Vázquez Blanco <antoniovazquezblanco@gmail.com>
+#
+
 """
 Simple example demonstrating scapy-socketlogger by sending an ICMP ping
 and logging the traffic to a PCAP file.
 """
 
-import scapy.all as scapy
+from scapy.all import *
 from scapy_socketlogger import SocketLogger
+
 
 def main():
     # Create a layer 3 socket for sending IP packets
-    sock = scapy.conf.L3socket()
+    sock = conf.L3socket()
 
     # Create a PCAP writer to log traffic
-    pcap_writer = scapy.PcapWriter("ping.pcap")
+    pcap_writer = PcapWriter("ping.pcap")
 
     # Wrap the socket with the logger
     logger = SocketLogger(sock, pcap_writer)
 
     try:
         # Create an ICMP echo request packet
-        pkt = scapy.IP(dst="8.8.8.8") / scapy.ICMP()
+        pkt = IP(dst="8.8.8.8") / ICMP()
 
         print("Sending ping to 8.8.8.8...")
 
@@ -33,6 +39,7 @@ def main():
     finally:
         # Close the logger (flushes PCAP and restores socket methods)
         logger.close()
+
 
 if __name__ == "__main__":
     main()
