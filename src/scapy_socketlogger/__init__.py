@@ -4,4 +4,6 @@
 # SPDX-FileCopyrightText: 2025 Antonio Vázquez Blanco <antoniovazquezblanco@gmail.com>
 #
 
-# TODO: Import relevant classes here
+from .socket_logger import SocketLogger
+
+__all__ = ["SocketLogger"]
