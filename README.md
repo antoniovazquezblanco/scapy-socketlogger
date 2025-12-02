@@ -16,4 +16,35 @@ pip install scapy-socketlogger
 
 ## Usage
 
-TODO
+Practical examples can be found in the [Examples](examples/) folder.
+
+For a plain quick usage reference, you may look into the following snippet:
+
+```python
+from scapy.all import SuperSocket, PcapWriter
+from scapy_socketlogger import SocketLogger
+
+# Create your socket
+sock = SuperSocket(...)
+
+# Create a PCAP writer
+pcap_writer = PcapWriter("traffic.pcap")
+
+# Wrap the socket with the logger
+logger = SocketLogger(sock, pcap_writer)
+
+# Use the socket normally - all traffic will be logged
+# ...
+
+# Close the logger when done
+logger.close()
+```
+
+Or use as a context manager:
+
+```python
+with SocketLogger(sock, pcap_writer) as logger:
+    # Use sock here
+    pass
+# Automatically closes and restores socket methods
+```
