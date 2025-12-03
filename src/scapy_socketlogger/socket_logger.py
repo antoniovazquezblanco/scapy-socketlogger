@@ -36,8 +36,9 @@ class SocketLogger:
         :param pkt: The packet to send
         :return: Result of the send operation
         """
+        len = self.sock_send_original(pkt)
         self.pcap_writer.write(pkt)
-        return self.sock_send_original(pkt)
+        return len
 
     def _recv(self, x=65535):
         """
