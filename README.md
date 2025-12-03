@@ -3,6 +3,7 @@
 [![Build](https://github.com/antoniovazquezblanco/scapy-socketlogger/actions/workflows/build.yml/badge.svg)](https://github.com/antoniovazquezblanco/scapy-socketlogger/actions/workflows/build.yml)
 [![PyPI](https://img.shields.io/pypi/v/scapy-socketlogger)](https://pypi.org/project/scapy-socketlogger/)
 [![Snyk](https://snyk.io/advisor/python/scapy-socketlogger/badge.svg)](https://snyk.io/advisor/python/scapy-socketlogger)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE.md)
 
 Log all traffic going through an Scapy socket to a PCAP file.
 
